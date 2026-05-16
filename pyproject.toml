@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools >= 77.0.3"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "eventball"
+version = "1.0.0"
+description = "EventBall System for BallsDex"
+license = "MIT"
+license-files = ["LICENSE"]
+readme = "README.md"
+
+authors = [
+    { name = "Valen7440" }
+]
+
+[project.urls]
+Homepage = "https://github.com/Valen7440/eventball"
+Funding = "https://patreon.com/valen7440"
