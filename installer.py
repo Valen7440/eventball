@@ -211,13 +211,4 @@ await add_package(PACKAGE_PATH.replace("/", "."))
 await add_model("ballsdex.core.eventball_models", ModelType.TORTOISE)
 await add_model("eventball_app", ModelType.DJANGO)
 
-await ctx.send("Reloading commands...")
-
-try:
-    await bot.reload_extension(PACKAGE_PATH.replace("/", "."))
-except commands.ExtensionNotLoaded:
-    await bot.load_extension(PACKAGE_PATH.replace("/", "."))
-
-await bot.tree.sync()
-
-await ctx.send("Finished installing/updating everything!")
+await ctx.send("Finished installing/updating everything! Now restart the bot to apply the changes.")

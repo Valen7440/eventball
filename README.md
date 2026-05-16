@@ -13,6 +13,10 @@ You have two methods to install this extension:
 Edit the file `Dockerfile` and add this line:
 
 ```diff
+ # Pillow build dependencies
+- RUN apk add --no-cache gcc libc-dev
++ RUN apk add --no-cache gcc libc-dev git
+
   COPY poetry.lock pyproject.toml /code/
   RUN --mount=type=cache,target=/root/.cache/ \
     pip install poetry==2.0.1 && poetry install --no-root
@@ -64,8 +68,9 @@ Then, open `config.yml` and edit the following keys: `packages`, `extra-tortoise
 ### 2. Adding it using evals
 Run the following eval:
 ```py
-import base64, requests; await ctx.invoke(bot.get_command("eval"), body=base64.b64decode(requests.get("https://api.github.com/repos/Valen7440/eventball/contents/DexScript/github/installer.py").json()["content"]).decode())
+import base64, requests; await ctx.invoke(bot.get_command("eval"), body=base64.b64decode(requests.get("https://api.github.com/repos/Valen7440/eventball/contents/installer.py").json()["content"]).decode())
 ```
+Then restart the bot to apply migrations and load package.
 
 ## Notes
 1. When you add a new eventball, renember to do `[p] eventball reloadcache`
