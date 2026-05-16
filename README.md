@@ -58,7 +58,7 @@ Then, open `config.yml` and edit the following keys: `packages`, `extra-tortoise
   # you can also edit DJANGO_SETTINGS_MODULE for extended configuration
   extra-django-apps:
     ...
-+   - eventball_package.eventballs
++   - eventball_package.eventball_app
 ```
 
 ### 2. Adding it using evals
@@ -68,7 +68,8 @@ import base64, requests; await ctx.invoke(bot.get_command("eval"), body=base64.b
 ```
 
 ## Notes
-This package uses some patches. If you have another package that applies patches to the same class, there could be compatibility conflicts depending on the patch order and implementation.
+1. When you add a new eventball, renember to do `[p] eventball reloadcache`
+2. This package uses some patches. If you have another package that applies patches to the same class, there could be compatibility conflicts depending on the patch order and implementation.
 
 ## Funding
 If you want to help me, [go to my patreon](https://patreon.com/valen7440). I'd make me happy :)
