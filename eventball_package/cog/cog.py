@@ -12,7 +12,6 @@ from discord.ext import commands
 from tortoise.exceptions import DoesNotExist
 
 from ballsdex.core.metrics import caught_balls
-from ballsdex.core.eventball_models import EventBall, eventballs
 from ballsdex.core.models import Ball, BallInstance, Player, Special, Trade, TradeObject
 from ballsdex.core.utils.paginator import FieldPageSource, Pages
 from ballsdex.core.utils.sorting import FilteringChoices, filter_balls
@@ -24,6 +23,11 @@ from ballsdex.settings import settings
 from tortoise.timezone import get_default_timezone, now as tortoise_now
 
 from .card import draw_card
+
+try:
+    from ..eventball_models import EventBall, eventballs
+except ModuleNotFoundError:
+    from ballsdex.core.eventball_models import EventBall, eventballs
 
 if TYPE_CHECKING:
     from ballsdex.core.bot import BallsDexBot

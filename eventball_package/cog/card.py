@@ -2,7 +2,6 @@ import textwrap
 from PIL import Image, ImageDraw, ImageOps
 from typing import TYPE_CHECKING, Any
 
-from ballsdex.core.eventball_models import eventballs
 from ballsdex.core.image_generator.image_gen import (
     get_credit_color,
     CORNERS,
@@ -15,6 +14,11 @@ from ballsdex.core.image_generator.image_gen import (
     credits_color_cache,
 )
 from ballsdex.settings import settings
+
+try:
+    from ..eventball_models import eventballs
+except ModuleNotFoundError:
+    from ballsdex.core.eventball_models import eventballs
 
 if TYPE_CHECKING:
     from ballsdex.core.models import BallInstance
